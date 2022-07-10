@@ -8,4 +8,6 @@ services:
       - ./:/app
       - /app/node_modules
     environment:
-      - PORT=30000
+      - PORT=3000
+    # env_file:
+    #   - ./.en
