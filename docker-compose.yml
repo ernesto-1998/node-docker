@@ -2,12 +2,20 @@ version: '3'
 services:
   node-app:
     build: .
-    ports: 
+    ports:
       - "3000:3000"
-    volumes:
-      - ./:/app
-      - /app/node_modules
     environment:
       - PORT=3000
-    # env_file:
-    #   - ./.en
+
+  mongo:
+    image: mongo
+    environment:
+      # - MONGO_INITDB_ROOT_USERNAME=neto
+      # - MONGO_INITDB_ROOT_PASSWORD=pass    
+      MONGO_INITDB_ROOT_USERNAME: neto
+      MONGO_INITDB_ROOT_PASSWORD: pass
+    volumes:
+      - mongo-db:/data/db
+
+volumes:
+  mongo-db:
