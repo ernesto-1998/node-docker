@@ -2,7 +2,6 @@ FROM node:18-alpine
 RUN apk add --no-cache bash
 WORKDIR /app
 COPY package.json .
-RUN npm install 
 
 ARG NODE_ENV
 RUN if [ "$NODE_ENV" = "development" ]; \
